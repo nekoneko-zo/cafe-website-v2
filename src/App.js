@@ -188,9 +188,9 @@ export default function App() {
             <h3 className="text-lg md:text-xl font-semibold mb-2">アクセス</h3>
             <div className="bg-gray-100 h-32 md:h-40 rounded-lg flex items-center justify-center">
               <div className="text-center">
-                <p className="text-sm text-gray-600 mb-1">東京都渋谷区</p>
-                <p className="text-xs text-gray-500">JR渋谷駅から徒歩5分</p>
-                <p className="text-xs text-gray-500">駐車場: 近隣コインパーキング</p>
+                <p className="text-sm text-gray-600 mb-1">〒572-0084 大阪府寝屋川市香里南之町３３−２２</p>
+                <p className="text-xs text-gray-500">香里園駅から徒歩3分</p>
+                <p className="text-xs text-gray-500">駐車場: 近隣駐車場あり</p>
               </div>
             </div>
           </div>
