@@ -2,7 +2,7 @@
   "name": "cafe-website",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://yuichi-kurihara.github.io/cafe-website-v2",
+  "homepage": "https://nekoneko-zo.github.io/cafe-website-v2",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
