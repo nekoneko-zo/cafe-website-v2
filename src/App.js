@@ -184,14 +184,24 @@ export default function App() {
               平日: 9:00 - 19:00<br />土日祝: 10:00 - 20:00<br />定休日: 火曜日
             </p>
           </div>
-          <div className="p-4 bg-white rounded-xl shadow h-48 md:h-64">
+          <div className="p-4 bg-white rounded-xl shadow">
             <h3 className="text-lg md:text-xl font-semibold mb-2">アクセス</h3>
-            <div className="bg-gray-100 h-32 md:h-40 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-sm text-gray-600 mb-1">〒572-0084 大阪府寝屋川市香里南之町３３−２２</p>
-                <p className="text-xs text-gray-500">香里園駅から徒歩3分</p>
-                <p className="text-xs text-gray-500">駐車場: 近隣駐車場あり</p>
-              </div>
+            <div className="mb-4">
+              <p className="text-sm text-gray-600 mb-1">〒572-0084 大阪府寝屋川市香里南之町３３−２２</p>
+              <p className="text-xs text-gray-500 mb-1">香里園駅から徒歩3分</p>
+              <p className="text-xs text-gray-500">駐車場: 近隣駐車場あり</p>
+            </div>
+            <div className="rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6553.731010364615!2d135.628695!3d34.784161!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60011d006abad85d%3A0xa1e423225a967122!2sSUNABACO%20NEYAGAWA!5e0!3m2!1sja!2sjp!4v1757253368577!5m2!1sja!2sjp"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="カフェの場所"
+              ></iframe>
             </div>
           </div>
         </div>
