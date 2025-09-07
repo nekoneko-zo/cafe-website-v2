@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iguo Coffee - デモ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-50 p-8">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center py-4 border-b border-gray-300">
+        <div class="text-2xl font-bold">Iguo Coffee</div>
+        <nav class="space-x-6">
+            <a href="#about" class="text-gray-700">About</a>
+            <a href="#menu" class="text-gray-700">Menu</a>
+            <a href="#story" class="text-gray-700">Story</a>
+            <a href="#info" class="text-gray-700">Info</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="h-96 flex items-center justify-center bg-gray-200 mt-6 rounded-2xl">
+        <h1 class="text-4xl font-bold text-gray-800">自家焙煎コーヒーの香りをあなたに</h1>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mt-12">
+        <h2 class="text-2xl font-semibold mb-4">About Us</h2>
+        <p class="text-gray-600">
+            Iguoさんが丹精込めて焙煎するこだわりの豆。地域に愛されるカフェを目指しています。
+        </p>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="mt-12">
+        <h2 class="text-2xl font-semibold mb-4">Menu</h2>
+        <div class="grid grid-cols-2 gap-6">
+            <div class="h-32 bg-gray-200 rounded-xl flex items-center justify-center">Coffee</div>
+            <div class="h-32 bg-gray-200 rounded-xl flex items-center justify-center">Dessert</div>
+            <div class="h-32 bg-gray-200 rounded-xl flex items-center justify-center">Light Meal</div>
+            <div class="h-32 bg-gray-200 rounded-xl flex items-center justify-center">Take Out</div>
+        </div>
+    </section>
+
+    <!-- Story -->
+    <section id="story" class="mt-12">
+        <h2 class="text-2xl font-semibold mb-4">Our Story</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-4 bg-white rounded-xl shadow">
+                <h3 class="text-xl font-semibold mb-2">お店の雰囲気</h3>
+                <p class="text-gray-600">
+                    木の温もりを感じる店内は、落ち着いた音楽と共にゆったりと過ごせる空間です。
+                    地域の人々の交流の場としても親しまれています。
+                </p>
+            </div>
+            <div class="p-4 bg-white rounded-xl shadow">
+                <h3 class="text-xl font-semibold mb-2">カフェオレへのこだわり</h3>
+                <p class="text-gray-600">
+                    厳選したミルクと自家焙煎コーヒーの絶妙なブレンド。
+                    滑らかさと深みを追求した一杯は、多くのお客様に愛されています。
+                </p>
+            </div>
+            <div class="p-4 bg-white rounded-xl shadow md:col-span-2">
+                <h3 class="text-xl font-semibold mb-2">ストーリー</h3>
+                <p class="text-gray-600">
+                    Iguoさんが旅先で出会った一杯のコーヒー。
+                    その感動を多くの人に伝えたいと、自家焙煎を始めました。
+                    豆の選定から焙煎、抽出に至るまでの物語が、カフェの一杯一杯に込められています。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="info" class="mt-12">
+        <h2 class="text-2xl font-semibold mb-4">営業時間 & アクセス</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-4 bg-white rounded-xl shadow">
+                <h3 class="text-xl font-semibold mb-2">営業時間</h3>
+                <p class="text-gray-600">
+                    平日: 9:00 - 19:00<br>土日祝: 10:00 - 20:00<br>定休日: 火曜日
+                </p>
+            </div>
+            <div class="p-4 bg-white rounded-xl shadow flex items-center justify-center h-64">
+                Google Map Placeholder
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Buttons -->
+    <div class="mt-12 flex justify-center space-x-4">
+        <button class="px-4 py-2 bg-blue-500 text-white rounded">Twitter</button>
+        <button class="px-4 py-2 bg-pink-500 text-white rounded">Instagram</button>
+        <button class="px-4 py-2 bg-blue-700 text-white rounded">Facebook</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-6 py-6 border-t border-gray-300 text-center text-gray-600">
+        <p>© 2025 Iguo Coffee. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
