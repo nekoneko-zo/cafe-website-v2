@@ -10,6 +10,49 @@ import cafeInteriorImage from './images/cafe-interior.jpg';
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // SNS共有機能
+  const shareToSNS = async (platform) => {
+    const url = window.location.href;
+    const text = "Iguo Coffee - 自家焙煎コーヒーの香りをあなたに";
+
+    try {
+      // URLをクリップボードにコピー
+      await navigator.clipboard.writeText(url);
+
+      // 各SNSの投稿画面を開く
+      switch (platform) {
+        case 'twitter':
+          window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+          break;
+        case 'facebook':
+          window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+          break;
+        case 'instagram':
+          // Instagramは直接投稿画面を開けないので、Instagramのウェブサイトを開く
+          window.open('https://www.instagram.com/', '_blank');
+          break;
+        default:
+          break;
+      }
+    } catch (err) {
+      console.error('クリップボードへのコピーに失敗しました:', err);
+      // フォールバックとして各SNSの画面を開く
+      switch (platform) {
+        case 'twitter':
+          window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+          break;
+        case 'facebook':
+          window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+          break;
+        case 'instagram':
+          window.open('https://www.instagram.com/', '_blank');
+          break;
+        default:
+          break;
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-6 md:p-8">
       {/* Header */}
@@ -209,9 +252,24 @@ export default function App() {
 
       {/* Social Media Buttons */}
       <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
-        <button className="w-full sm:w-auto px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors">Twitter</button>
-        <button className="w-full sm:w-auto px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg text-sm font-medium transition-colors">Instagram</button>
-        <button className="w-full sm:w-auto px-6 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg text-sm font-medium transition-colors">Facebook</button>
+        <button
+          onClick={() => shareToSNS('twitter')}
+          className="w-full sm:w-auto px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors"
+        >
+          Twitter
+        </button>
+        <button
+          onClick={() => shareToSNS('instagram')}
+          className="w-full sm:w-auto px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg text-sm font-medium transition-colors"
+        >
+          Instagram
+        </button>
+        <button
+          onClick={() => shareToSNS('facebook')}
+          className="w-full sm:w-auto px-6 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg text-sm font-medium transition-colors"
+        >
+          Facebook
+        </button>
       </div>
 
       {/* Footer */}
