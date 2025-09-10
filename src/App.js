@@ -15,41 +15,60 @@ export default function App() {
     const url = window.location.href;
     const text = "Iguo Coffee - 自家焙煎コーヒーの香りをあなたに";
 
-    try {
-      // URLをクリップボードにコピー
-      await navigator.clipboard.writeText(url);
+    // URLをクリップボードにコピーする関数
+    const copyToClipboard = async (text) => {
+      try {
+        // モダンブラウザのクリップボードAPIを使用
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+        // フォールバック: 古いブラウザ用
+        else if (document.execCommand) {
+          const textArea = document.createElement('textarea');
+          textArea.value = text;
+          textArea.style.position = 'fixed';
+          textArea.style.left = '-999999px';
+          textArea.style.top = '-999999px';
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          const success = document.execCommand('copy');
+          document.body.removeChild(textArea);
+          return success;
+        }
+      } catch (err) {
+        console.error('クリップボードへのコピーに失敗しました:', err);
+      }
+      return false;
+    };
 
-      // 各SNSの投稿画面を開く
-      switch (platform) {
-        case 'twitter':
-          window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
-          break;
-        case 'facebook':
-          window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-          break;
-        case 'instagram':
-          // Instagramは直接投稿画面を開けないので、Instagramのウェブサイトを開く
-          window.open('https://www.instagram.com/', '_blank');
-          break;
-        default:
-          break;
-      }
-    } catch (err) {
-      console.error('クリップボードへのコピーに失敗しました:', err);
-      // フォールバックとして各SNSの画面を開く
-      switch (platform) {
-        case 'twitter':
-          window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
-          break;
-        case 'facebook':
-          window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-          break;
-        case 'instagram':
-          window.open('https://www.instagram.com/', '_blank');
-          break;
-        default:
-          break;
-      }
+    // URLをコピー
+    const copySuccess = await copyToClipboard(url);
+
+    // 各SNSの投稿画面を開く
+    switch (platform) {
+      case 'twitter':
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+        break;
+      case 'facebook':
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        break;
+      case 'instagram':
+        // Instagramは直接投稿画面を開けないので、Instagramのウェブサイトを開く
+        // URLがコピーされていることをユーザーに知らせる
+        if (copySuccess) {
+          alert('URLがコピーされました！Instagramで貼り付けて共有してください。');
+        }
+        window.open('https://www.instagram.com/', '_blank');
+        break;
+      default:
+        break;
+    }
+
+    // コピー成功時は通知を表示
+    if (copySuccess && platform !== 'instagram') {
+      alert('URLがクリップボードにコピーされました！');
     }
   };
 
